@@ -1,5 +1,5 @@
 import React from "react";
-import {Button} from "src/components/button/button";
+import {Button} from "src/components/Button/button";
 import {ToDoItem} from "src/components/ToDoItem/ToDoItem";
 import {ToDoItemEditable} from "src/components/ToDoItemEditable/ToDoItemEditable";
 import {useTodos} from "src/hooks/useTodos";
