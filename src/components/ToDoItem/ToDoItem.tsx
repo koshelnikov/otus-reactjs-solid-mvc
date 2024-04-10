@@ -1,5 +1,5 @@
 import React from "react";
-import {Button} from "src/components/Button/button";
+import {Button} from "src/components/Button/Button";
 
 export interface iTodoItemProps {
     title: string

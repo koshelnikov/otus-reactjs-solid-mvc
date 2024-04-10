@@ -1,6 +1,6 @@
 import {iTodoItemProps, ToDoItem} from "src/components/ToDoItem/ToDoItem";
 import React from "react";
-import {Button} from "src/components/Button/button";
+import {Button} from "src/components/Button/Button";
 
 // Open-Closed
 // Liskov-Substitution

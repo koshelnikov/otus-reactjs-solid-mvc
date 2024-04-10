@@ -14,10 +14,10 @@ export const useTodos = () => {
         createTodo: () => {
             createTodo("New Todo Item", "allow").then(() => getTodos().then(({data}) => setTodos(data)))
         },
-        editTodo: (id: number, edit: string) => {
+        editTodo: (id: string, edit: string) => {
             editTodo(id, edit).then(() => getTodos().then(({data}) => setTodos(data)))
         },
-        deleteTodo: (id: number) => {
+        deleteTodo: (id: string) => {
             deleteTodo(id).then(() => getTodos().then(({data}) => setTodos(data)))
         },
     }

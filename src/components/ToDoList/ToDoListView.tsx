@@ -1,12 +1,16 @@
 import React from "react";
-import {Button} from "src/components/Button/button";
-import {ToDoItem} from "src/components/ToDoItem/ToDoItem";
-import {ToDoItemEditable} from "src/components/ToDoItemEditable/ToDoItemEditable";
-import {useTodos} from "src/hooks/useTodos";
+import {Button} from "../Button/Button";
+import {ToDoItemEditable} from "../ToDoItemEditable/ToDoItemEditable";
+import {ToDoItem} from "../ToDoItem/ToDoItem";
 
-export const TodoList = () => {
-    const {todos, createTodo, editTodo, deleteTodo} = useTodos();
+type iProps = {
+    todos: {id: string, title: string, edit: string}[]
+    onCreate: () => void
+    onEdit: (id: string, edit: string) => void
+    onRemove: (id: string) => void
+}
 
+export const ToDoListView: React.FC<iProps> = ({todos, onCreate, onEdit, onRemove}) => {
     return (
         <div>
             <h1>My Todos:</h1>
@@ -20,7 +24,7 @@ export const TodoList = () => {
                         <path d="M14 11H11M11 11H8M11 11V8M11 11V14" stroke="#1C274C" stroke-width="2"
                               stroke-linecap="round"/>
                     </svg>)}
-                onClick={() => createTodo()}
+                onClick={() => onCreate}
             />
 
             <ul>
@@ -28,15 +32,15 @@ export const TodoList = () => {
                     <li key={todo.id}>
                         {todo.edit === 'allow' && <ToDoItemEditable
                             title={todo.title}
-                            onRemove={() => {deleteTodo(todo.id)}}
-                            onEdit={() => {editTodo(todo.id, 'disallow')}}
+                            onRemove={() => {onRemove(todo.id)}}
+                            onEdit={() => {onEdit(todo.id, 'disallow')}}
                             editName={'Disallow'}
                         />
                         }
 
                         {todo.edit === 'disallow' && <ToDoItem
                             title={todo.title}
-                            onRemove={() => {deleteTodo(todo.id)}}
+                            onRemove={() => {onRemove(todo.id)}}
                         />
                         }
                     </li>
