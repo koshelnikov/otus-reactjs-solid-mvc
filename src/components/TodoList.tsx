@@ -29,7 +29,7 @@ export const TodoList = () => {
                         {todo.edit === 'allow' && <ToDoItemEditable
                             title={todo.title}
                             onRemove={() => {deleteTodo(todo.id)}}
-                            onEdit={() => {editTodo(todo.id)}}
+                            onEdit={() => {editTodo(todo.id, 'disallow')}}
                             editName={'Edit'}
                         />
                         }

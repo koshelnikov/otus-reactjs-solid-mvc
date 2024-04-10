@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {createTodo, editTodo, getTodos} from "src/client/api";
+import {createTodo, deleteTodo, editTodo, getTodos} from "src/client/api";
 
 export const useTodos = () => {
     const [todos, setTodos] = useState([])
@@ -12,9 +12,13 @@ export const useTodos = () => {
     return {
         todos,
         createTodo: () => {
-            createTodo('solid', "New Todo Item").then(() => getTodos().then(({data}) => setTodos(data)))
+            createTodo("New Todo Item", "allow").then(() => getTodos().then(({data}) => setTodos(data)))
         },
-        editTodo: (id: number) => {},
-        deleteTodo: (id: number) => {}
+        editTodo: (id: number, edit: string) => {
+            editTodo(id, edit).then(() => getTodos().then(({data}) => setTodos(data)))
+        },
+        deleteTodo: (id: number) => {
+            deleteTodo(id).then(() => getTodos().then(({data}) => setTodos(data)))
+        },
     }
 }
