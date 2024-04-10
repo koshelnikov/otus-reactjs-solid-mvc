@@ -30,7 +30,7 @@ export const TodoList = () => {
                             title={todo.title}
                             onRemove={() => {deleteTodo(todo.id)}}
                             onEdit={() => {editTodo(todo.id, 'disallow')}}
-                            editName={'Edit'}
+                            editName={'Disallow'}
                         />
                         }
 
