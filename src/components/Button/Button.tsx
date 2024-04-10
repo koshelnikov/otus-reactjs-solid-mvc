@@ -12,10 +12,11 @@ export const Button: React.FC<iProps> = (props) => {
         children,
         ...restProps} = props
 
-    return (<button {...restProps}>
-        {icon && icon}
-        { children && <span>{children}</span>}
-    </button>
+    return (
+        <button {...restProps}>
+            {icon && icon}
+            { children && <span>{children}</span>}
+        </button>
     )
 }
 
