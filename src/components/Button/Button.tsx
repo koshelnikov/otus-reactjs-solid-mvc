@@ -4,7 +4,7 @@ import React, {ButtonHTMLAttributes, ReactNode} from "react";
 interface iProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     icon: ReactNode
 }
-// leftIcon Open-Closed
+// icon Open-Closed
 // children Open-Closed
 export const Button: React.FC<iProps> = (props) => {
     const {
@@ -13,7 +13,7 @@ export const Button: React.FC<iProps> = (props) => {
         ...restProps} = props
 
     return (<button {...restProps}>
-        {icon&& icon}
+        {icon && icon}
         { children && <span>{children}</span>}
     </button>
     )
